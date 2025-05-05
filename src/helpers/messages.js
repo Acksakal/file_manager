@@ -7,6 +7,7 @@ import {
   ERROR_INVALID_INPUT,
   ERROR_OPERATION_FAILED,
   MESSAGE_EMPTY_FOLDER,
+  MESSAGE_EMPTY_FILE
 } from "./constants.js";
 
 export const logWelcomeMsg = (username) => {
@@ -32,4 +33,8 @@ export const logOperationFailedErr = () => {
 
 export const logFolderIsEmpty = () => {
   console.log(getColorizedMsg({ msg: MESSAGE_EMPTY_FOLDER, type: 'warn' }))
+}
+
+export const logFileIsEmpty = () => {
+  console.log(getColorizedMsg({ msg: MESSAGE_EMPTY_FILE, type: 'warn' }))
 }

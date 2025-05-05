@@ -25,15 +25,15 @@ async function main() {
   });
 
   rl.on('line', async (line) => {
-    const userInput = line.trim().split(/\s+/);
+    const userInput = line.trim();    
 
-    if (userInput[0] === '.exit') {
+    if (userInput === '.exit') {
       rl.close();
       logGoodbyeMsg(username);
       return;
     }
 
-    if (userInput[0] == '') {
+    if (userInput == '') {
       await logCurrentDir(store.currentDir);
       rl.prompt();
       return;

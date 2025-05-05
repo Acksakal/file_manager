@@ -6,11 +6,12 @@ import { logInvalidInputErr, logOperationFailedErr } from './helpers/messages.js
 
 /**
  * Handles a sanitized command input.
- * @param {string[]} inputTokens - An array where the first item is the command and the rest are arguments.
+ * @param {string} inputString - The trimmed input string provided by the user.
  */
-export async function handleCommand(inputTokens) {
+export async function handleCommand(inputString) {  
+  const inputTokens = inputString.split(/\s+/);
   const [command, ...args] = inputTokens;
-  const fn = serviceFactory[command];
+  const fn = serviceFactory[command.toLowerCase()];
 
   if (typeof fn !== 'function') {
     logInvalidInputErr();
@@ -19,7 +20,8 @@ export async function handleCommand(inputTokens) {
 
   try {
     await fn(args);
-  } catch {
+  } catch (cause) {
     logOperationFailedErr();
+    console.error(cause);
   }
 }
