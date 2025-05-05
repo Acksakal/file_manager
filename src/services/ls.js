@@ -1,13 +1,18 @@
+// node
 import { readdir } from "node:fs/promises";
-import { logInvalidInputErr, logFolderIsEmpty } from '../helpers/messages.js';
+
+// global state
 import { store } from '../store.js';
+
+// helpers
+import { logInvalidInputErr, logFolderIsEmpty } from '../helpers/messages.js';
 
 /**
  * Lists the contents of the user's home directory.
  * @param {string[]} args - Command arguments (should be empty).
  */
 export const listDirectory = async (args) => {
-  if (args) {
+  if (args.length >= 1) {
     logInvalidInputErr();
     return;
   }
@@ -23,7 +28,7 @@ export const listDirectory = async (args) => {
     .filter(e => e.isFile())
     .map(e => ({ name: e.name, type: 'file' }))
     .sort((a, b) => a.name.localeCompare(b.name));
-  
+
   const output = [...folders, ...files];
 
   if (output.length === 0) {

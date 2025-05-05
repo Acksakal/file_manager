@@ -1,5 +1,7 @@
-// @ts-check
+// command-line functions
 import { serviceFactory } from './services/service-factory.js';
+
+// helpers
 import { logInvalidInputErr, logOperationFailedErr } from './helpers/messages.js';
 
 /**
@@ -16,7 +18,7 @@ export async function handleCommand(inputTokens) {
   }
 
   try {
-    await fn(...args);
+    await fn(args);
   } catch {
     logOperationFailedErr();
   }

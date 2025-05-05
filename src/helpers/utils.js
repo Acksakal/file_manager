@@ -22,7 +22,7 @@ const colorMap = {
  * @param {string} props.msg - The message to log
  * @param {'info' | 'success' | 'error' | "warn"} [props.type='info'] - Message type
 */
-export function colorizeMsg({ msg, type = 'info' }) {
+export function getColorizedMsg({ msg, type = 'info' }) {
   return `${colorMap[type]}${msg}${colors.reset}`;
 }
 
@@ -61,5 +61,5 @@ export function throwErr({ msg, cause }) {
  */
 export function capitalizeFirstLetter(str) {
   if (str.length === 0) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
