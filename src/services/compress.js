@@ -1,8 +1,8 @@
 // node
-import { createReadStream, createWriteStream } from 'node:fs';
+import path from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { createBrotliCompress } from 'node:zlib';
-import path from 'node:path';
+import { createReadStream, createWriteStream } from 'node:fs';
 
 // global state
 import { store } from '../store.js';

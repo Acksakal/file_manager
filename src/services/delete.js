@@ -1,6 +1,6 @@
 // node
-import { rm } from 'node:fs/promises';
 import path from 'node:path';
+import { rm } from 'node:fs/promises';
 
 // global state
 import { store } from '../store.js';

@@ -1,5 +1,5 @@
-import { getColorizedMsg } from "./utils.js";
 import { getTruePath } from './getTruePath.js';
+import { getColorizedMsg } from "./utils.js";
 import {
   MESSAGE_CURRENT_DIR,
   MESSAGE_GOODBYE,

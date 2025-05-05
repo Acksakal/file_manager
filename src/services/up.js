@@ -1,5 +1,5 @@
 // node
-import * as path from 'node:path';
+import path from 'node:path';
 
 // global state
 import { store } from '../store.js';
@@ -14,7 +14,7 @@ import { logInvalidInputErr } from '../helpers/messages.js';
  * @param {Array} args - An array of arguments passed with the command.
  * @returns {string} The new current directory after moving up.
  */
-export const goUp = (args) => {
+export const moveUpDirectory = (args) => {
   if (args.length >= 1) {
     logInvalidInputErr();
     return;
