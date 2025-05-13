@@ -23,12 +23,28 @@ export const logCurrentDir = async (dir) => {
   console.log(MESSAGE_CURRENT_DIR, getColorizedMsg({ msg: fixedPath, type: 'success' }));
 };
 
-export const logInvalidInputErr = () => {
-  console.error(getColorizedMsg({ msg: ERROR_INVALID_INPUT, type: 'error' }));
+export const logInvalidInputErr = (cause) => {
+  console.error(getColorizedMsg({
+    msg: ERROR_INVALID_INPUT,
+    type: 'error'
+  }) + (
+      cause
+        ? `\n${getColorizedMsg({ msg: cause, type: 'error' })}`
+        : ''
+    )
+  );
 };
 
-export const logOperationFailedErr = () => {
-  console.error(getColorizedMsg({ msg: ERROR_OPERATION_FAILED, type: 'error' }));
+export const logOperationFailedErr = (cause) => {
+  console.error(getColorizedMsg({
+    msg: ERROR_OPERATION_FAILED,
+    type: 'error'
+  }) + (
+      cause
+        ? `\n${getColorizedMsg({ msg: cause, type: 'error' })}`
+        : ''
+    )
+  );
 };
 
 export const logFolderIsEmpty = () => {

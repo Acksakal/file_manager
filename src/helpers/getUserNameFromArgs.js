@@ -27,3 +27,22 @@ export const getUsernameFromArgs = () => {
   const value = usernameArg?.split('=')[1]?.trim();
   return value ? capitalizeFullName(value) : 'Guest';
 };
+
+
+
+/*
+[SELF-REVIEW] This native option is better, but requires some refactoring
+try {
+    const { values } = parseArgs({
+      options: {
+        username: { type: 'string' }
+      },
+      args: process.argv.slice(2),
+    });
+  
+    const usernameInput = values.username?.trim();
+    return usernameInput ? capitalizeFullName(usernameInput) : 'Guest';
+  } catch (error) {
+    logInvalidInputErr(error.message);
+  }
+*/

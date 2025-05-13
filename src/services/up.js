@@ -26,6 +26,4 @@ export const moveUpDirectory = (args) => {
 
   const newDir = currentDir === rootDir ? currentDir : parentDir;
   store.currentDir = newDir;
-
-  return newDir;
 }

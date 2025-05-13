@@ -4,6 +4,9 @@ import { rm } from 'node:fs/promises';
 // command-line function
 import { copyFile } from './cp.js';
 
+// helpers
+import { logInvalidInputErr } from '../helpers/messages.js';
+
 /**
  * Moves a file to a new directory using streams.
  * It copies the file to the target directory and deletes the original.
@@ -14,6 +17,12 @@ import { copyFile } from './cp.js';
  *   - targetDirectory is the directory where the file should be moved
  */
 export const moveFile = async (args) => {
-  const sourceFullPath = await copyFile(args);
-  await rm(sourceFullPath);
+  if (args.length < 2) {
+    logInvalidInputErr();
+    return;
+  }
+  
+  console.log('here');
+  const sourceFileFullPath = await copyFile(args);
+  await rm(sourceFileFullPath);
 };

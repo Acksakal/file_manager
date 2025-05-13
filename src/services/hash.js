@@ -32,9 +32,9 @@ export const handleHashService = async (args) => {
     }
   });
 
-    await pipeline(
-      createReadStream(filePath),
-      writable
-    );
-    console.log(hash.digest('hex'));
+  await pipeline(
+    createReadStream(filePath),
+    writable
+  );
+  console.log(hash.digest('hex'));
 };

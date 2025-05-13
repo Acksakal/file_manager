@@ -21,7 +21,6 @@ export async function handleCommand(inputString) {
   try {
     await fn(args);
   } catch (cause) {
-    logOperationFailedErr();
-    console.error(cause);
+    logOperationFailedErr(cause.message);
   }
 }

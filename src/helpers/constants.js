@@ -9,6 +9,11 @@ export const MESSAGE_EMPTY_FOLDER = "[Folder is empty]\n";
 export const ERROR_INVALID_INPUT = "Invalid input";
 export const ERROR_OPERATION_FAILED = "Operation failed";
 
+// ERROR CAUSES
+export const ERROR_CAUSE_NOT_A_DIR = "is not a directory";
+export const ERROR_CAUSE_NOT_A_FILE = "is not a file";
+export const ERROR_CAUSE_NOT_AN_ARCHIVE = "is not an archive";
+
 // OS
 export const OS_ARG_EOL = "--EOL"
 export const OS_ARG_CPUS = "--cpus"

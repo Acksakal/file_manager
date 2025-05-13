@@ -6,7 +6,7 @@ import { rm } from 'node:fs/promises';
 import { store } from '../store.js';
 
 // helpers
-import { logInvalidInputErr, logOperationFailedErr } from '../helpers/messages.js';
+import { logInvalidInputErr } from '../helpers/messages.js';
 
 /**
  * Deletes a file at the specified path.

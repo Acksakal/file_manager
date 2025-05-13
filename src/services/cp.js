@@ -8,6 +8,7 @@ import { store } from '../store.js';
 
 // helpers
 import { logInvalidInputErr } from '../helpers/messages.js';
+import { assertIsDirectory, assertIsFile } from '../helpers/validation.js';
 
 /**
  * Copies a file from one location to a target directory using streams.
@@ -24,14 +25,18 @@ export const copyFile = async (args) => {
   }
 
   const [sourcePath, targetDirectory] = args;
-  const sourceFullPath = path.resolve(store.currentDir, sourcePath);
+  const sourceFileFullPath = path.resolve(store.currentDir, sourcePath);
   const targetDirFullPath = path.resolve(store.currentDir, targetDirectory);
-  const fileName = path.basename(sourceFullPath);
-  const targetFullPath = path.join(targetDirFullPath, fileName);  
+
+  await assertIsFile(sourceFileFullPath);
+  await assertIsDirectory(targetDirFullPath);
+
+  const fileName = path.basename(sourceFileFullPath);
+  const targetFullPath = path.join(targetDirFullPath, fileName);
 
   await pipeline(
-    createReadStream(sourceFullPath),
+    createReadStream(sourceFileFullPath),
     createWriteStream(targetFullPath)
   );
-  return sourceFullPath;
+  return sourceFileFullPath;
 };

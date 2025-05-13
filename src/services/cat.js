@@ -7,7 +7,7 @@ import { store } from '../store.js';
 
 // helpers
 import { getColorizedMsg } from '../helpers/utils.js';
-import { logFileIsEmpty } from '../helpers/messages.js';
+import { logFileIsEmpty, logInvalidInputErr } from '../helpers/messages.js';
 
 /**
  * Prints the contents of a file to the console, like the `cat` command.
@@ -15,12 +15,17 @@ import { logFileIsEmpty } from '../helpers/messages.js';
  * @param {string[]} args - File path as an array of string parts (e.g., ['desktop/test.txt']).
  */
 export const printFileContent = async (args) => {
+  if (args.length < 1) {
+    logInvalidInputErr();
+    return;
+  }
+
   const relativePath = args.join(' ');
   const fullPath = path.resolve(store.currentDir, relativePath);
 
   const file = await open(fullPath);
   let hasContent = false;
-  
+
   for await (const line of file.readLines({ encoding: 'utf-8' })) {
     hasContent = true;
     console.log(getColorizedMsg({ msg: line }));

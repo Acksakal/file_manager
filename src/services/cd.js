@@ -21,6 +21,6 @@ export const changeDirectory = async (args) => {
     logInvalidInputErr();
     return;
   }
-
+  
   store.currentDir = resolvedPath;
 };

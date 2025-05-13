@@ -1,4 +1,6 @@
 // @ts-check
+import process from "node:process";
+
 const supportsColor = process.stdout.isTTY && process.env.TERM !== 'dumb';
 
 const colors = {
@@ -22,7 +24,7 @@ const colorMap = {
  * @param {string} props.msg - The message to log
  * @param {'info' | 'success' | 'error' | "warn"} [props.type='info'] - Message type
 */
-export function getColorizedMsg({ msg, type = 'info' }) {
+export function getColorizedMsg({ msg = '', type = 'info' }) {
   return `${colorMap[type]}${msg}${colors.reset}`;
 }
 
