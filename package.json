@@ -1,0 +1,27 @@
+{
+  "name": "file_manager",
+  "version": "1.0.0",
+  "description": "this repo is part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "type":"module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acksakal/file_manager.git"
+  },
+  "keywords": [
+    "nodejs",
+    "assignments",
+    "acksakal"
+  ],
+  "author": "acksakal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acksakal/file_manager/issues"
+  },
+  "homepage": "https://github.com/Acksakal/file_manager#readme"
+}
