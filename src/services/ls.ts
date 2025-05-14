@@ -2,16 +2,17 @@
 import { readdir } from "node:fs/promises";
 
 // global state
-import { store } from '../store.js';
+import { store } from '../store';
 
 // helpers
-import { logInvalidInputErr, logFolderIsEmpty } from '../helpers/messages.js';
+import { logInvalidInputErr, logFolderIsEmpty } from '../helpers/messages';
+import { ServiceCommand } from "../types/Service.type";
 
 /**
  * Lists the contents of the user's home directory.
  * @param {string[]} args - Command arguments (should be empty).
  */
-export const listDirectory = async (args) => {
+export const listDirectory: ServiceCommand = async (args) => {
   if (args.length >= 1) {
     logInvalidInputErr();
     return;
