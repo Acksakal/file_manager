@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=22.14.0"
   },
-  "type":"module",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js"
   },
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/Acksakal/file_manager/issues"
   },
-  "homepage": "https://github.com/Acksakal/file_manager#readme"
+  "homepage": "https://github.com/Acksakal/file_manager#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }
